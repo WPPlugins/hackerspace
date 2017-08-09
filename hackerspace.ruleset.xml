@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<ruleset name="Hackerspace">
+    <description>
+        Custom set of CodeSniffer rules to check for the Hackerspace WordPress plugin.
+        Test them `phpcs --standard=./hackerspace.ruleset.xml -s -v .`
+    </description>
+
+
+<!-- Reports errors if the same class name is used in multiple files -->
+<rule ref="Generic.Classes.DuplicateClassName" />
+<!-- Ensures all class keywords are lowercase -->
+<rule ref="Squiz.Classes.LowercaseClassKeywords" />
+<!-- Checks the for unused function parameters -->
+<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" />
+<!-- Add warnings for TODO and FIXME comments -->
+<rule ref="Generic.Commenting" />
+<!-- Verifies the doc comments for classes -->
+<rule ref="PEAR.Commenting.ClassComment">
+    <!-- classes need documentation but not all the PEAR required tags -->
+    <exclude name="PEAR.Commenting.ClassComment.MissingTag" />
+</rule>
+<!-- Verifies the doc comments for functions -->
+<rule ref="PEAR.Commenting.FunctionComment" />
+<!-- Checks that no perl-style comments are used -->
+<rule ref="PEAR.Commenting.InlineComment">
+    <!-- no need for @return tags everywhere -->
+    <exclude name="PEAR.Commenting.FunctionComment.MissingReturn" />
+</rule>
+<!-- Verifies that inline control statements are not present -->
+<rule ref="Generic.ControlStructures.InlineControlStructure" />
+<!-- Detecting BOMs that may corrupt application work -->
+<rule ref="Generic.Files.ByteOrderMark" />
+<!-- Ensures the file ends with a newline character -->
+<rule ref="Generic.Files.EndFileNewline" />
+<!-- Checks that all file names are lowercased -->
+<rule ref="Generic.Files.LowercasedFilename" />
+<!-- Checks that only one class is declared per file -->
+<rule ref="Generic.Files.OneClassPerFile" />
+<!-- Checks that the file does not end with a closing tag -->
+<rule ref="Zend.Files.ClosingTag" />
+<!-- Checks that the opening brace of a function is on the line after the function declaration. -->
+<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman" />
+<!-- check that parameters defined for a function that have a default value come at the end of the function signature -->
+<rule ref="PEAR.Functions.ValidDefaultValue" />
+<!-- Checks that arguments in function declarations are spaced correctly -->
+<rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing" />
+<!-- Checks for cyclomatic complexity and nesting levels metrics -->
+<rule ref="Generic.Metrics" />
+<!-- Favor PHP 5 constructor syntax, which uses "function __construct() -->
+<rule ref="Generic.NamingConventions.ConstructorName" />
+<!-- Ensures that constant names are all uppercase -->
+<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
+<!-- Ensures class and interface names start with a capital letter -->
+<rule ref="PEAR.NamingConventions.ValidClassName" />
+<!-- Checks the naming of member variables -->
+<rule ref="PEAR.NamingConventions.ValidVariableName" />
+<!-- Discourages the use of deprecated functions that are kept in PHP -->
+<rule ref="Generic.PHP.DeprecatedFunctions" />
+<!-- Makes sure that shorthand PHP open tags are not used -->
+<rule ref="Generic.PHP.DisallowShortOpenTag" />
+<!-- Discourages the use of alias functions that are kept in PHP for compatibility -->
+<rule ref="Generic.PHP.ForbiddenFunctions" />
+<!-- Checks that all uses of true, false and null are lowercase -->
+<rule ref="Generic.PHP.LowerCaseConstant" />
+<!-- -->
+<rule ref="Squiz.PHP.CommentedOutCode" />
+<!-- The use of eval() is discouraged -->
+<rule ref="Squiz.PHP.Eval" />
+<!-- Stops the usage of the "global" keyword -->
+<rule ref="Squiz.PHP.GlobalKeyword" />
+<!-- Warns about code that can never been executed -->
+<rule ref="Squiz.PHP.NonExecutableCode" />
+<!-- Makes sure there are no spaces between the concatenation operator (.) and the strings -->
+<rule ref="Squiz.Strings.ConcatenationSpacing" />
+<!-- Throws errors if tabs are used for indentation -->
+<rule ref="Generic.WhiteSpace.DisallowTabIndent" />
+<!-- Checks that control structures are structured correctly, and their content is indented correctly -->
+<rule ref="Generic.WhiteSpace.ScopeIndent" />
+<!-- Ensure cast statements don't contain whitespace -->
+<rule ref="Squiz.WhiteSpace.CastSpacing" />
+<!-- Checks that there is no empty line after the opening brace of a function -->
+<rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace" />
+<!-- Checks that they are nor superflous whitespaces and lines -->
+<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
+
+<!-- WordPress rules -->
+<rule ref="WordPress">
+    <!-- but not the superflous whitespaces ones -->
+    <exclude name="WordPress.Arrays.ArrayDeclaration" />
+    <exclude name="WordPress.Formatting.MultipleStatementAlignment" />
+    <exclude name="WordPress.Functions.FunctionCallSignature" />
+    <exclude name="WordPress.WhiteSpace" />
+</rule>
+
+<!--
+TEST if this one are usefull too:
+Generic.Files.LineEndings
+Generic.Files.LowercasedFilename
+Generic.Formatting.MultipleStatementAlignment.NotSameWarning
+Generic.PHP.LowerCaseKeyword
+
+PEAR.Commenting.FileComment
+PEAR.Functions.FunctionDeclaration
+PEAR.NamingConventions.ValidFunctionName -> Camel Caps
+Squiz.Strings.DoubleQuoteUsage
+Zend.NamingConventions.ValidVariableName
+-->
+
+</ruleset>

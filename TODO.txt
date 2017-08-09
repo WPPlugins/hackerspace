@@ -1,0 +1,34 @@
+TODO
+====
+
+General
+-------
+
+- Extend uninstall to remove all datas
+- Write a better way for uninstall : ask the user to remove, or not, custom post type, hacker user and settings
+- Add french translation
+- Add help texts
+
+
+Spaceapi endpoint
+-----------------
+
+- Try to create a Page instead of a feed for Space Api json output
+    This would allow the recomended /status.json address
+- Add more external sources for the open/close status and allow user to choice the source from settings
+- Use the WordPress Media feature for logo, open, close images
+- Add more  infos like spacefeed, cam & sensors
+
+
+Settings admin page
+-------------------
+
+- Improve validation (html5 only for now)
+- Enable settings for Space Api issue report chanels and cache time
+- Replace the requirement to email to a proper validation comining issue report chanels and contacts fields
+
+Custom post types
+-----------------
+
+- Add a Equipement custom post type
+- Add an Events custom post type
